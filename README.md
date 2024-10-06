@@ -11,7 +11,7 @@
 - [Team Members](#team-members)
 - [Contact Information](#contact-information)
 
-![Image  Chemosynthesis Challenge](img\Azufre.jpg)
+![Image  Chemosynthesis Challenge](img/Azufre.jpg)
 
 ## Project Overview
 The **Chemosynthesis Challenge** is an educational game developed for a NASA hackathon, designed to explore the potential of non-photosynthetic organisms and their interactions in various chemical environments. This project aims to teach players about the chemistry underlying these hypothetical ecosystems and illustrate how such organisms might coexist and thrive.
