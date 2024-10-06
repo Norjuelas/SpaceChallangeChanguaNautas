@@ -1,11 +1,22 @@
 import pygame
 import random
 
-# Clase PantallaInicial para manejar la pantalla de inicio y la generación de maná
-class PantallaInicial:
+# Clase PantallaInicial para manejar la pantalla de inicio
+class main:
+
+
     def __init__(self, ancho, alto, filas, columnas, tamaño_celda):
-        self.ancho = ancho
-        self.alto = alto
+
+        self.BLACK = (0, 0, 0)
+        self.WHITE = (255, 255, 255)
+        self.GREEN = (0, 255, 0)
+        self.RED = (255, 0, 0)
+    
+        self.ancho = 20
+        self.alto = 20
+        self.margin = 5
+        self.grid = []
+
         self.filas = filas
         self.columnas = columnas
         self.tamaño_celda = tamaño_celda
@@ -13,19 +24,16 @@ class PantallaInicial:
         
         # Inicializa la pantalla
         self.pantalla = pygame.display.set_mode((self.ancho, self.alto))
-        pygame.display.set_caption("Pantalla Inicial con Maná Procedural")
+        pygame.display.set_caption("changuapp")
 
-    # Genera una grilla de maná proceduralmente (valores aleatorios)
-    def generar_grilla_mana(self):
-        grilla = []
-        for fila in range(self.filas):
-            fila_grilla = []
-            for columna in range(self.columnas):
-                # Genera un valor aleatorio de maná (por ejemplo, entre 0 y 255)
-                mana_valor = random.randint(0, 255)
-                fila_grilla.append(mana_valor)
-            grilla.append(fila_grilla)
-        return grilla
+    def generateGrid(self):
+
+        for row in range(10):
+            self.grid.append([])
+            for column in range(10):
+                self.grid[row].append(0)
+        
+        return self.grid
 
     # Dibuja la grilla en la pantalla
     def dibujar_grilla(self):

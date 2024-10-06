@@ -47,5 +47,3 @@ class organism(pygame.sprite.Sprite):
         if self.energia <= 0:
             self.kill()  # Elimina el organismo si se queda sin energía
 
-# Uso en el juego
-organismo = OrganismoQuimiosintetico(pos_x=100, pos_y=150, tamaño=30, color=(0, 255, 0))
