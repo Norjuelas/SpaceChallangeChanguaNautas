@@ -324,54 +324,56 @@ def draw_organism_selection_buttons(screen):
     return buttons
 
 # Bucle principal del programa
-done = False
-while not done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            if iter_button.collidepoint(pos):
-                handle_iteration()
-            else:
-                # Detectar si se hizo clic en algún botón de organismo
-                for button_rect, organism_index in organism_buttons:
-                    if button_rect.collidepoint(pos):
-                        organism_manager.set_selected_organism(organism_index)
 
-                # Añadir organismo al hacer clic en la grilla
-                column = pos[0] // (WIDTH + MARGIN)
-                row = pos[1] // (HEIGHT + MARGIN)
-                if row < GRID_SIZE and column < GRID_SIZE:  # Si se hace clic dentro de la grilla
-                    organism = organism_manager.create_organism(row, column)
-                    if organism:
-                        grid.add_organism(row, column, organism)
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_i:  # Detecta si se presiona la tecla 'i'
-                handle_iteration()
+def main(selectOption):
+    done = False
+    while not done:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                if iter_button.collidepoint(pos):
+                    handle_iteration()
+                else:
+                    # Detectar si se hizo clic en algún botón de organismo
+                    for button_rect, organism_index in organism_buttons:
+                        if button_rect.collidepoint(pos):
+                            organism_manager.set_selected_organism(organism_index)
 
-    # Fondo de la pantalla
-    screen.fill(BLACK)
+                    # Añadir organismo al hacer clic en la grilla
+                    column = pos[0] // (WIDTH + MARGIN)
+                    row = pos[1] // (HEIGHT + MARGIN)
+                    if row < GRID_SIZE and column < GRID_SIZE:  # Si se hace clic dentro de la grilla
+                        organism = organism_manager.create_organism(row, column)
+                        if organism:
+                            grid.add_organism(row, column, organism)
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_i:  # Detecta si se presiona la tecla 'i'
+                    handle_iteration()
 
-    # Dibujar la grilla
-    grid.draw(screen)
+        # Fondo de la pantalla
+        screen.fill(BLACK)
 
-    # Dibujar el botón de iteración
-    iter_button = draw_button(screen)
+        # Dibujar la grilla
+        grid.draw(screen)
 
-    # Dibujar las condiciones del sistema
-    draw_system_conditions(screen, nutrientes, ph, hidrogeno, hierro, nitrogeno, azufre, 
-                       population_hidrogeno, population_hierro, population_nitrogeno, population_azufre)
- 
-    # Dibujar los botones de selección de organismos
-    organism_buttons = draw_organism_selection_buttons(screen)
+        # Dibujar el botón de iteración
+        iter_button = draw_button(screen)
 
-    # Limitar la actualización a 60 FPS
-    clock.tick(60)
+        # Dibujar las condiciones del sistema
+        draw_system_conditions(screen, nutrientes, ph, hidrogeno, hierro, nitrogeno, azufre, 
+                        population_hidrogeno, population_hierro, population_nitrogeno, population_azufre)
     
-    # Actualizar la pantalla
-    pygame.display.flip()
+        # Dibujar los botones de selección de organismos
+        organism_buttons = draw_organism_selection_buttons(screen)
 
-# Salir del programa
-pygame.quit()
+        # Limitar la actualización a 60 FPS
+        clock.tick(60)
+        
+        # Actualizar la pantalla
+        pygame.display.flip()
+
+    # Salir del programa
+    pygame.quit()
 
