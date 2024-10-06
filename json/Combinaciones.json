@@ -1,0 +1,562 @@
+{
+  "['S']": {
+    "Fuerza": 2,
+    "Resistencia": 4,
+    "Regeneración": 3,
+    "Crecimiento y Adaptabilidad": 3,
+    "Detoxificación y Defensa Toxicológica": 4,
+    "Recuperación": 2,
+    "behavior": "Protección celular mejorada y resistencia a infecciones.",
+    "Description": "El azufre fortalece los enlaces disulfuro en proteínas, reforzando la estructura celular y proporcionando mayor resistencia frente a patógenos y estrés ambiental."
+  },
+  "['H']": {
+    "Fuerza": 3,
+    "Resistencia": 3,
+    "Regeneración": 4,
+    "Crecimiento y Adaptabilidad": 3,
+    "Detoxificación y Defensa Toxicológica": 2,
+    "Recuperación": 3,
+    "behavior": "Metabolismo acelerado y cicatrización rápida de tejidos.",
+    "Description": "El hidrógeno es esencial en procesos metabólicos y producción de energía, permitiendo una recuperación más rápida de lesiones y mayor disponibilidad energética."
+  },
+  "['Fe']": {
+    "Fuerza": 5,
+    "Resistencia": 4,
+    "Regeneración": 3,
+    "Crecimiento y Adaptabilidad": 2,
+    "Detoxificación y Defensa Toxicológica": 3,
+    "Recuperación": 4,
+    "behavior": "Transporte de oxígeno optimizado y resistencia física aumentada.",
+    "Description": "El hierro incrementa la producción de hemoglobina, mejorando la oxigenación de los tejidos y potenciando el rendimiento físico y la resistencia muscular."
+  },
+  "['N']": {
+    "Fuerza": 3,
+    "Resistencia": 2,
+    "Regeneración": 2,
+    "Crecimiento y Adaptabilidad": 5,
+    "Detoxificación y Defensa Toxicológica": 1,
+    "Recuperación": 2,
+    "behavior": "Crecimiento acelerado y adaptación genética avanzada.",
+    "Description": "El nitrógeno es clave en la síntesis de aminoácidos y ácidos nucleicos, facilitando un rápido crecimiento y una mayor capacidad de adaptación a cambios ambientales."
+  },
+  "['S', 'S']": {
+    "Fuerza": 4,
+    "Resistencia": 6,
+    "Regeneración": 5,
+    "Crecimiento y Adaptabilidad": 4,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 4,
+    "behavior": "Barreras celulares reforzadas y detoxificación eficiente.",
+    "Description": "La doble presencia de azufre intensifica los enlaces disulfuro, creando estructuras celulares más resistentes a toxinas y patógenos."
+  },
+  "['S', 'H']": {
+    "Fuerza": 5,
+    "Resistencia": 5,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 5,
+    "Detoxificación y Defensa Toxicológica": 5,
+    "Recuperación": 6,
+    "behavior": "Regeneración celular rápida con membranas fortalecidas.",
+    "Description": "El azufre refuerza las membranas celulares, mientras que el hidrógeno acelera la regeneración de tejidos dañados."
+  },
+  "['S', 'Fe']": {
+    "Fuerza": 6,
+    "Resistencia": 6,
+    "Regeneración": 5,
+    "Crecimiento y Adaptabilidad": 4,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 5,
+    "behavior": "Resistencia física mejorada con protección celular.",
+    "Description": "El hierro optimiza el rendimiento muscular, y el azufre protege las células durante actividades físicas intensas."
+  },
+  "['S', 'N']": {
+    "Fuerza": 4,
+    "Resistencia": 5,
+    "Regeneración": 4,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 4,
+    "Recuperación": 5,
+    "behavior": "Adaptación genética rápida con células robustas.",
+    "Description": "El nitrógeno acelera las adaptaciones genéticas, mientras que el azufre asegura que las nuevas células sean fuertes y resistentes."
+  },
+  "['H', 'H']": {
+    "Fuerza": 5,
+    "Resistencia": 5,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 5,
+    "Detoxificación y Defensa Toxicológica": 3,
+    "Recuperación": 6,
+    "behavior": "Metabolismo hiperactivo y regeneración celular mejorada.",
+    "Description": "El alto contenido de hidrógeno maximiza la producción de energía y la capacidad de regenerar células rápidamente."
+  },
+  "['H', 'Fe']": {
+    "Fuerza": 6,
+    "Resistencia": 6,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 5,
+    "Detoxificación y Defensa Toxicológica": 4,
+    "Recuperación": 7,
+    "behavior": "Resistencia prolongada con energía sostenida.",
+    "Description": "El hidrógeno proporciona energía constante, y el hierro mejora el suministro de oxígeno, permitiendo actividades físicas prolongadas sin fatiga."
+  },
+  "['H', 'N']": {
+    "Fuerza": 5,
+    "Resistencia": 5,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 3,
+    "Recuperación": 6,
+    "behavior": "Crecimiento acelerado con eficiencia energética.",
+    "Description": "El nitrógeno impulsa el crecimiento celular, mientras que el hidrógeno asegura suficiente energía para sustentar ese crecimiento."
+  },
+  "['Fe', 'Fe']": {
+    "Fuerza": 8,
+    "Resistencia": 7,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 4,
+    "Detoxificación y Defensa Toxicológica": 5,
+    "Recuperación": 7,
+    "behavior": "Fuerza muscular excepcional y capacidad aeróbica elevada.",
+    "Description": "La doble cantidad de hierro aumenta la hemoglobina, mejorando el transporte de oxígeno y permitiendo fuerza y resistencia superiores."
+  },
+  "['Fe', 'N']": {
+    "Fuerza": 8,
+    "Resistencia": 7,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 4,
+    "Recuperación": 7,
+    "behavior": "Desarrollo muscular rápido con adaptabilidad.",
+    "Description": "El nitrógeno facilita la síntesis de proteínas musculares, y el hierro asegura un suministro óptimo de oxígeno para el crecimiento muscular."
+  },
+  "['N', 'N']": {
+    "Fuerza": 5,
+    "Resistencia": 5,
+    "Regeneración": 5,
+    "Crecimiento y Adaptabilidad": 8,
+    "Detoxificación y Defensa Toxicológica": 3,
+    "Recuperación": 5,
+    "behavior": "Evolución genética acelerada y adaptación extrema.",
+    "Description": "La doble presencia de nitrógeno permite rápidos cambios genéticos, adaptando al organismo a nuevos entornos con mayor eficiencia."
+  },
+  "['S', 'S', 'S']": {
+    "Fuerza": 6,
+    "Resistencia": 8,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 5,
+    "behavior": "Protección celular máxima y resistencia a agentes externos.",
+    "Description": "El triple azufre refuerza las proteínas estructurales, creando células altamente resistentes a toxinas y patógenos."
+  },
+  "['S', 'S', 'H']": {
+    "Fuerza": 7,
+    "Resistencia": 7,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 8,
+    "behavior": "Regeneración superior con defensas celulares fortalecidas.",
+    "Description": "El azufre fortalece las células, mientras que el hidrógeno permite una rápida recuperación de lesiones."
+  },
+  "['S', 'S', 'Fe']": {
+    "Fuerza": 8,
+    "Resistencia": 8,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 7,
+    "behavior": "Resistencia física sobresaliente con células protegidas.",
+    "Description": "El azufre protege las células durante el esfuerzo físico, y el hierro potencia el rendimiento muscular."
+  },
+  "['S', 'S', 'N']": {
+    "Fuerza": 6,
+    "Resistencia": 7,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 8,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 6,
+    "behavior": "Adaptación evolutiva rápida con protección celular máxima.",
+    "Description": "El nitrógeno facilita adaptaciones genéticas aceleradas, mientras que el azufre asegura células robustas y resistentes."
+  },
+  "['S', 'H', 'H']": {
+    "Fuerza": 7,
+    "Resistencia": 7,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 5,
+    "Recuperación": 8,
+    "behavior": "Regeneración acelerada con células reforzadas.",
+    "Description": "El hidrógeno proporciona energía para la regeneración, y el azufre fortalece las células recién formadas."
+  },
+  "['S', 'H', 'Fe']": {
+    "Fuerza": 8,
+    "Resistencia": 7,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 8,
+    "behavior": "Recuperación rápida tras esfuerzo con protección celular.",
+    "Description": "El hidrógeno ayuda en la recuperación energética, el hierro mejora el rendimiento físico, y el azufre protege las células del estrés."
+  },
+  "['S', 'H', 'N']": {
+    "Fuerza": 6,
+    "Resistencia": 7,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 8,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 7,
+    "behavior": "Adaptación y regeneración eficientes con células fuertes.",
+    "Description": "El nitrógeno permite adaptaciones rápidas, el hidrógeno acelera la regeneración, y el azufre refuerza las células."
+  },
+  "['S', 'Fe', 'Fe']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 8,
+    "behavior": "Fuerza física excepcional con células resistentes.",
+    "Description": "El doble hierro mejora el rendimiento muscular, mientras que el azufre protege las células durante esfuerzos intensos."
+  },
+  "['S', 'Fe', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 7,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 8,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 7,
+    "behavior": "Desarrollo muscular avanzado con protección celular y adaptabilidad.",
+    "Description": "El nitrógeno facilita el crecimiento, el hierro potencia la fuerza, y el azufre asegura la protección celular."
+  },
+  "['S', 'N', 'N']": {
+    "Fuerza": 7,
+    "Resistencia": 7,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 7,
+    "behavior": "Evolución genética acelerada con células robustas.",
+    "Description": "El nitrógeno permite cambios genéticos rápidos, y el azufre garantiza que las nuevas células sean fuertes y resistentes."
+  },
+  "['H', 'H', 'H']": {
+    "Fuerza": 8,
+    "Resistencia": 7,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 8,
+    "behavior": "Metabolismo máximo y regeneración celular excepcional.",
+    "Description": "El triple hidrógeno incrementa al máximo la producción de energía y la capacidad de regeneración celular."
+  },
+  "['H', 'H', 'N']": {
+    "Fuerza": 6,
+    "Resistencia": 6,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 5,
+    "Recuperación": 7,
+    "behavior": "Adaptación y regeneración con metabolismo elevado.",
+    "Description": "El hidrógeno acelera la regeneración celular y el metabolismo, mientras que el nitrógeno ayuda en el crecimiento y adaptación genética."
+  },
+  "['H', 'Fe', 'Fe']": {
+    "Fuerza": 9,
+    "Resistencia": 7,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 6,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 8,
+    "behavior": "Fuerza física incrementada con mayor recuperación.",
+    "Description": "La combinación de doble hierro con hidrógeno optimiza la resistencia y la capacidad de recuperación durante esfuerzos prolongados."
+  },
+  "['H', 'Fe', 'N']": {
+    "Fuerza": 8,
+    "Resistencia": 7,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 8,
+    "behavior": "Recuperación eficiente con desarrollo muscular acelerado.",
+    "Description": "El hierro mejora la fuerza física, el nitrógeno permite adaptaciones rápidas y el hidrógeno acelera la recuperación post esfuerzo."
+  },
+  "['H', 'N', 'N']": {
+    "Fuerza": 7,
+    "Resistencia": 6,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 5,
+    "Recuperación": 7,
+    "behavior": "Crecimiento y regeneración acelerada con adaptaciones genéticas.",
+    "Description": "El nitrógeno facilita la adaptación genética y el crecimiento, mientras que el hidrógeno aumenta la energía disponible para la regeneración."
+  },
+  "['Fe', 'Fe', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 7,
+    "Regeneración": 6,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 7,
+    "behavior": "Fuerza muscular optimizada con adaptabilidad celular.",
+    "Description": "El nitrógeno permite una mayor capacidad de adaptación, mientras que el doble hierro incrementa el rendimiento muscular."
+  },
+  "['Fe', 'N', 'N']": {
+    "Fuerza": 7,
+    "Resistencia": 6,
+    "Regeneración": 5,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 5,
+    "Recuperación": 6,
+    "behavior": "Adaptación acelerada con desarrollo muscular eficiente.",
+    "Description": "El nitrógeno facilita el crecimiento y la adaptabilidad genética, mientras que el hierro asegura un desarrollo muscular eficiente."
+  },
+  "['S', 'S', 'S', 'S']": {
+    "Fuerza": 9,
+    "Resistencia": 10,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 10,
+    "Recuperación": 7,
+    "behavior": "Protección celular impenetrable y resistencia total a toxinas.",
+    "Description": "El cuádruple azufre crea células extremadamente resistentes, casi impenetrables a patógenos y sustancias tóxicas."
+  },
+  "['S', 'S', 'S', 'H']": {
+    "Fuerza": 8,
+    "Resistencia": 9,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Regeneración celular ultra rápida con células altamente protegidas.",
+    "Description": "El azufre refuerza las células, y el hidrógeno permite regeneración casi instantánea de tejidos."
+  },
+  "['S', 'S', 'S', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 9,
+    "Recuperación": 8,
+    "behavior": "Resistencia física excepcional con células impenetrables.",
+    "Description": "El azufre protege las células durante esfuerzos máximos potenciados por el hierro."
+  },
+  "['S', 'S', 'S', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 9,
+    "Recuperación": 8,
+    "behavior": "Adaptación genética extrema con protección celular máxima.",
+    "Description": "El nitrógeno facilita adaptaciones genéticas rápidas, y el azufre asegura células altamente resistentes."
+  },
+  "['S', 'S', 'H', 'H']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Regeneración acelerada con células ultra resistentes.",
+    "Description": "El hidrógeno proporciona energía para regeneración rápida, y el azufre fortalece las células."
+  },
+  "['S', 'S', 'H', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 9,
+    "Recuperación": 9,
+    "behavior": "Recuperación eficiente tras esfuerzo extremo con células protegidas.",
+    "Description": "Combinación de energía, rendimiento físico y protección celular para superar esfuerzos intensos."
+  },
+  "['S', 'S', 'H', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 8,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Adaptación y regeneración rápidas con células reforzadas.",
+    "Description": "El nitrógeno y el hidrógeno aceleran adaptaciones y regeneración, mientras que el azufre protege las células."
+  },
+  "['S', 'S', 'Fe', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 9,
+    "Recuperación": 9,
+    "behavior": "Fuerza y resistencia físicas máximas con células robustas.",
+    "Description": "El doble hierro maximiza el rendimiento físico, y el azufre asegura la protección celular durante actividades extremas."
+  },
+  "['S', 'S', 'Fe', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 8,
+    "behavior": "Desarrollo físico superior con adaptabilidad y protección celular.",
+    "Description": "El hierro potencia la fuerza, el nitrógeno facilita la adaptación, y el azufre refuerza las células."
+  },
+  "['S', 'S', 'N', 'N']": {
+    "Fuerza": 8,
+    "Resistencia": 9,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 10,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 8,
+    "behavior": "Adaptación genética ultra rápida con células altamente resistentes.",
+    "Description": "El doble nitrógeno acelera adaptaciones, y el doble azufre protege y fortalece las células."
+  },
+  "['H', 'H', 'H', 'H']": {
+    "Fuerza": 9,
+    "Resistencia": 9,
+    "Regeneración": 10,
+    "Crecimiento y Adaptabilidad": 8,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 10,
+    "behavior": "Metabolismo y regeneración celulares máximos.",
+    "Description": "El cuádruple hidrógeno maximiza la producción de energía y la capacidad de regeneración celular."
+  },
+  "['H', 'H', 'H', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 9,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Resistencia física sobresaliente con recuperación inmediata.",
+    "Description": "El hidrógeno y el hierro permiten esfuerzo físico intenso con recuperación casi instantánea."
+  },
+  "['H', 'H', 'H', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 9,
+    "behavior": "Crecimiento y adaptación acelerados con energía abundante.",
+    "Description": "El hidrógeno proporciona energía para el rápido crecimiento y adaptación facilitados por el nitrógeno."
+  },
+  "['H', 'H', 'Fe', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Fuerza y resistencia máximas con recuperación rápida.",
+    "Description": "El doble hierro y el doble hidrógeno permiten rendimiento físico máximo y recuperación eficiente."
+  },
+  "['H', 'H', 'Fe', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 9,
+    "behavior": "Desarrollo físico y adaptabilidad superiores con energía sostenida.",
+    "Description": "El hierro potencia la fuerza, el hidrógeno mantiene la energía, y el nitrógeno facilita adaptaciones."
+  },
+  "['H', 'H', 'N', 'N']": {
+    "Fuerza": 8,
+    "Resistencia": 9,
+    "Regeneración": 9,
+    "Crecimiento y Adaptabilidad": 10,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 9,
+    "behavior": "Adaptación genética rápida con metabolismo eficiente.",
+    "Description": "El doble nitrógeno permite adaptaciones genéticas aceleradas, y el doble hidrógeno asegura energía para esos procesos."
+  },
+  "['H', 'Fe', 'Fe', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Fuerza y resistencia físicas extremas con recuperación rápida.",
+    "Description": "El triple hierro maximiza el rendimiento físico, y el hidrógeno permite recuperación eficiente tras el esfuerzo."
+  },
+  "['H', 'Fe', 'Fe', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 8,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 8,
+    "behavior": "Máximo desarrollo físico con adaptabilidad y energía sostenida.",
+    "Description": "Combinación de fuerza, energía y adaptabilidad para rendimiento físico superior."
+  },
+  "['H', 'Fe', 'N', 'N']": {
+    "Fuerza": 8,
+    "Resistencia": 8,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 10,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 8,
+    "behavior": "Fuerza mejorada con adaptación genética acelerada y energía abundante.",
+    "Description": "El hierro mejora la fuerza, el nitrógeno facilita adaptaciones, y el hidrógeno asegura energía constante."
+  },
+  "['H', 'N', 'N', 'N']": {
+    "Fuerza": 7,
+    "Resistencia": 8,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 10,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 8,
+    "behavior": "Adaptación genética máxima con metabolismo optimizado.",
+    "Description": "El triple nitrógeno permite adaptaciones rápidas, y el hidrógeno proporciona la energía necesaria."
+  },
+  "['Fe', 'Fe', 'Fe', 'Fe']": {
+    "Fuerza": 10,
+    "Resistencia": 10,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 7,
+    "Detoxificación y Defensa Toxicológica": 8,
+    "Recuperación": 9,
+    "behavior": "Fuerza y resistencia físicas absolutas con oxigenación óptima.",
+    "Description": "El cuádruple hierro maximiza la hemoglobina y el rendimiento físico al máximo nivel posible."
+  },
+  "['Fe', 'Fe', 'Fe', 'N']": {
+    "Fuerza": 9,
+    "Resistencia": 9,
+    "Regeneración": 8,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 8,
+    "behavior": "Desarrollo muscular supremo con adaptación genética rápida.",
+    "Description": "El hierro potencia la fuerza al máximo, y el nitrógeno permite adaptaciones genéticas eficientes."
+  },
+  "['Fe', 'Fe', 'N', 'N']": {
+    "Fuerza": 8,
+    "Resistencia": 9,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 9,
+    "Detoxificación y Defensa Toxicológica": 7,
+    "Recuperación": 8,
+    "behavior": "Fuerza elevada con capacidad de adaptación mejorada.",
+    "Description": "El doble hierro mejora la fuerza, y el doble nitrógeno facilita adaptaciones genéticas rápidas."
+  },
+  "['Fe', 'N', 'N', 'N']": {
+    "Fuerza": 7,
+    "Resistencia": 8,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 10,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 7,
+    "behavior": "Fuerza mejorada con adaptación genética máxima.",
+    "Description": "El hierro potencia la fuerza, y el triple nitrógeno permite adaptaciones genéticas aceleradas."
+  },
+  "['N', 'N', 'N', 'N']": {
+    "Fuerza": 6,
+    "Resistencia": 9,
+    "Regeneración": 7,
+    "Crecimiento y Adaptabilidad": 10,
+    "Detoxificación y Defensa Toxicológica": 6,
+    "Recuperación": 7,
+    "behavior": "Máxima capacidad de adaptación y evolución genética.",
+    "Description": "El cuádruple nitrógeno permite cambios genéticos rápidos y eficientes, adaptando al organismo a cualquier ambiente."
+  }
+}

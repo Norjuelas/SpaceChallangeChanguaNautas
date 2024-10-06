@@ -1,6 +1,8 @@
 import pygame
 import random
 from organism import Azufre, Hierro, Nitrogeno, Hidrogeno
+import os
+print(os.getcwd())  # Para saber desde dónde se está ejecutando el programa
 
 # Define colores
 BLACK = (0, 0, 0)
@@ -8,10 +10,10 @@ WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)  # Color del botón
 
 # Configuraciones de la grilla
-WIDTH = 30  # Ancho de cada celda
-HEIGHT = 30  # Altura de cada celda
+WIDTH = 60  # Ancho de cada celda
+HEIGHT = 60  # Altura de cada celda
 MARGIN = 5   # Espacio entre celdas
-GRID_SIZE = 20  # Tamaño de la grilla (20x20)
+GRID_SIZE = 10  # Tamaño de la grilla (20x20)
 
 # Condiciones iniciales del sistema
 nutrientes = 100  # Nutrientes iniciales
@@ -61,6 +63,18 @@ class Grid:
 
 class OrganismManager:
     def __init__(self):
+        # Cargar imágenes de los organismos
+        self.azufre_image = pygame.image.load('img/Azufre.jpg')
+        self.hierro_image = pygame.image.load('img/Hierro.jpg')
+        self.nitrogeno_image = pygame.image.load('img/Nitrogeno.jpg')
+        self.hidrogeno_image = pygame.image.load('img/Hidrogeno.jpg')
+
+        # Redimensionar las imágenes al tamaño de la celda
+        self.azufre_image = pygame.transform.scale(self.azufre_image, (WIDTH, HEIGHT))
+        self.hierro_image = pygame.transform.scale(self.hierro_image, (WIDTH, HEIGHT))
+        self.nitrogeno_image = pygame.transform.scale(self.nitrogeno_image, (WIDTH, HEIGHT))
+        self.hidrogeno_image = pygame.transform.scale(self.hidrogeno_image, (WIDTH, HEIGHT))
+
         self.organism_classes = [Azufre, Hierro, Nitrogeno, Hidrogeno]
         self.selected_organism_class = None  # Organismo seleccionado por el jugador
 
@@ -68,6 +82,16 @@ class OrganismManager:
         if self.selected_organism_class is not None:
             organism = self.selected_organism_class(col * (WIDTH + MARGIN) + MARGIN, 
                                                     row * (HEIGHT + MARGIN) + MARGIN, WIDTH)
+            # Asignar la imagen correcta al organismo
+            if isinstance(organism, Azufre):
+                organism.image = self.azufre_image
+            elif isinstance(organism, Hierro):
+                organism.image = self.hierro_image
+            elif isinstance(organism, Nitrogeno):
+                organism.image = self.nitrogeno_image
+            elif isinstance(organism, Hidrogeno):
+                organism.image = self.hidrogeno_image
+
             return organism
         return None
 
