@@ -4,7 +4,6 @@ import random
 # Clase PantallaInicial para manejar la pantalla de inicio
 class main:
 
-
     def __init__(self, ancho, alto, filas, columnas, tamaño_celda):
 
         self.BLACK = (0, 0, 0)

@@ -6,17 +6,16 @@ class organism(pygame.sprite.Sprite):
     def __init__(self, pos_x, pos_y, tamaño, color):
 
         super().__init__()
-        
+     """
         self.image = pygame.Surface((tamaño, tamaño))
         self.image.fill(color)
         self.rect = self.image.get_rect()
         self.rect.topleft = (pos_x, pos_y)
         
-        # Atributos adicionales del organismo
         self.energia = 100  # Energía inicial del organismo
         self.velocidad = 2   # Velocidad de movimiento
         self.quimico = 0     # Cantidad de sustancia química para su quimiosíntesis
-
+    """
     # Método para mover al organismo
     def mover(self, direction):
         if direction == 'up':
