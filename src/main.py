@@ -325,7 +325,7 @@ def draw_organism_selection_buttons(screen):
 
 # Bucle principal del programa
 
-def main(selectOption):
+def main():
     done = False
     while not done:
         for event in pygame.event.get():
