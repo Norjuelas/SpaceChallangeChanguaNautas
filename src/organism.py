@@ -23,6 +23,12 @@ class Organismo(pygame.sprite.Sprite):
         # Atributos de comportamiento y descripción
         self.behavior = ""
         self.description = ""
+    
+    def cargar_combinaciones_json(ruta_json):
+        with open(ruta_json, 'r', encoding='utf-8') as file:  # Cambié 'json/Combinaciones.json' a 'ruta_json'
+            combinaciones_json = json.load(file)
+        return combinaciones_json
+
 
     # Método para mostrar la descripción del organismo en pantalla
     def mostrar_descripcion(self, pantalla, fuente, color=(255, 255, 255)):
@@ -136,8 +142,4 @@ class Hidrogeno(Organismo):
                             "celulares, siendo una parte integral del metabolismo y la energía.")
 
 # Cargar el archivo JSON de combinaciones
-def cargar_combinaciones_json(ruta_json):
-    with open(ruta_json, 'json/Combinaciones.json', encoding='utf-8') as file:
-        combinaciones_json = json.load(file)
-    return combinaciones_json
 

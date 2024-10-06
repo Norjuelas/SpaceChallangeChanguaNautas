@@ -1,8 +1,8 @@
 import pygame
 import random
 from organism import Azufre, Hierro, Nitrogeno, Hidrogeno
-import os
-print(os.getcwd())  # Para saber desde dónde se está ejecutando el programa
+
+from Condicionesspacio import *
 
 # Define colores
 BLACK = (0, 0, 0)
@@ -16,8 +16,22 @@ MARGIN = 5   # Espacio entre celdas
 GRID_SIZE = 10  # Tamaño de la grilla (20x20)
 
 # Condiciones iniciales del sistema
-nutrientes = 100  # Nutrientes iniciales
+nutrientes = 100  # Nutrientes iniciales totales
+hidrogeno = 25    # Nutrientes de hidrógeno
+hierro = 25       # Nutrientes de hierro
+nitrogeno = 25    # Nutrientes de nitrógeno
+azufre = 25
 ph = 7.0  # Nivel de pH inicial (neutral)
+
+#poblaciones 4 bacterias 
+
+population_nitrogeno = 0
+population_azufre = 0 
+population_hierro = 0
+population_hidrogeno = 0
+
+combinaciones_json = Azufre.cargar_combinaciones_json('json/Combinaciones.json')  # Asegúrate de que la ruta sea correcta
+
 
 class Grid:
     def __init__(self, rows, cols):
@@ -77,8 +91,10 @@ class OrganismManager:
 
         self.organism_classes = [Azufre, Hierro, Nitrogeno, Hidrogeno]
         self.selected_organism_class = None  # Organismo seleccionado por el jugador
+        self.organisms = []  # Lista global para almacenar organismos
 
     def create_organism(self, row, col):
+        """Crear un organismo y añadirlo a la lista de organismos."""
         if self.selected_organism_class is not None:
             organism = self.selected_organism_class(col * (WIDTH + MARGIN) + MARGIN, 
                                                     row * (HEIGHT + MARGIN) + MARGIN, WIDTH)
@@ -91,14 +107,26 @@ class OrganismManager:
                 organism.image = self.nitrogeno_image
             elif isinstance(organism, Hidrogeno):
                 organism.image = self.hidrogeno_image
-
+            
+            # Agregar el organismo a la lista
+            self.organisms.append(organism)
             return organism
         return None
 
     def set_selected_organism(self, index):
-        """Seleccionar un organismo basado en su índice"""
+        """Seleccionar un organismo basado en su índice."""
         if 0 <= index < len(self.organism_classes):
             self.selected_organism_class = self.organism_classes[index]
+
+    def initialize_organisms(self, initial_positions):
+        """Inicializa organismos en posiciones específicas."""
+        for row, col, organism_type in initial_positions:
+            self.selected_organism_class = organism_type
+            self.create_organism(row, col)
+
+    def get_organisms(self):
+        """Retorna la lista de organismos."""
+        return self.organisms
 
 # Inicializar pygame
 pygame.init()
@@ -115,6 +143,33 @@ clock = pygame.time.Clock()
 grid = Grid(GRID_SIZE, GRID_SIZE)
 organism_manager = OrganismManager()
 
+def count_organisms():
+    global population_nitrogeno
+    global population_azufre
+    global population_hierro
+    global population_hidrogeno
+    
+    # Reiniciar los contadores
+    population_nitrogeno = 0
+    population_azufre = 0
+    population_hierro = 0
+    population_hidrogeno = 0
+    
+    # Recorrer la grilla
+    for row in range(GRID_SIZE):
+        for col in range(GRID_SIZE):
+            organism = grid.grid[row][col]
+            if organism is not None:
+                # Incrementar el contador según el tipo de organismo
+                if isinstance(organism, Nitrogeno):
+                    population_nitrogeno += 1
+                elif isinstance(organism, Azufre):
+                    population_azufre += 1
+                elif isinstance(organism, Hierro):
+                    population_hierro += 1
+                elif isinstance(organism, Hidrogeno):
+                    population_hidrogeno += 1
+
 # Función para dibujar el botón de iteración
 def draw_button(screen):
     button_rect = pygame.Rect(WINDOW_SIZE[0] // 2 - 50, WINDOW_SIZE[1] - 40, 100, 30)
@@ -124,13 +179,38 @@ def draw_button(screen):
     screen.blit(text, (button_rect.x + 25, button_rect.y + 5))
     return button_rect
 
-# Función para manejar la iteración
 def handle_iteration():
-    global nutrientes
-    global ph
+    global nutrientes, ph, hidrogeno, hierro, nitrogeno, azufre
     print("Iteración activada")
-    nutrientes -= 5  # Los nutrientes disminuyen con cada iteración
-    ph = max(0, ph - 0.1)  # El pH baja ligeramente en cada iteración
+
+    # Disminuir nutrientes de manera equitativa entre los tipos
+    decremento = 5  # Cantidad total que disminuirá
+    hidrogeno -= decremento / 4
+    hierro -= decremento / 4
+    nitrogeno -= decremento / 4
+    azufre -= decremento / 4
+
+    # Asegurarse de que los nutrientes no bajen de 0
+    hidrogeno = max(0, hidrogeno)
+    hierro = max(0, hierro)
+    nitrogeno = max(0, nitrogeno)
+    azufre = max(0, azufre)
+
+    # Actualizar el total de nutrientes
+    nutrientes = hidrogeno + hierro + nitrogeno + azufre
+
+    # El pH baja ligeramente en cada iteración
+    ph = max(0, ph - 0.1)
+
+    # Crear una instancia de condiciones del espacio
+    condiciones = CondicionesEspacio(ph)
+    # Definir el pH basado en los porcentajes de nutrientes
+    total_nutrientes = hidrogeno + hierro + nitrogeno + azufre
+    Fe_percentage = (hierro / total_nutrientes) * 100 if total_nutrientes > 0 else 0
+    S_percentage = (azufre / total_nutrientes) * 100 if total_nutrientes > 0 else 0
+    H_percentage = (hidrogeno / total_nutrientes) * 100 if total_nutrientes > 0 else 0
+
+    condiciones.definir_ph(Fe_percentage, S_percentage, H_percentage)
 
     new_organisms = []  # Almacenar los organismos que se multiplican
     for row in range(GRID_SIZE):
@@ -153,8 +233,40 @@ def handle_iteration():
     for row, col, organism in new_organisms:
         grid.add_organism(row, col, organism)
 
+    count_organisms()
+    
+    # Ajustar condiciones de vida según el pH
+    for organismo in organism_manager.get_organisms():
+        condiciones.ajustar_condiciones(organismo)
+        #elegir_mejora(organismo, combinaciones_json)  # Pasa el JSON cargado aquí
+
+def elegir_mejora(organismo, combinaciones_json):
+    """Permite al jugador elegir una característica para mejorar el organismo."""
+    print("Selecciona una combinación de atributos para mejorar:")
+    
+    # Crear una lista de combinaciones disponibles en el JSON
+    opciones = list(combinaciones_json.keys())
+    for i, opcion in enumerate(opciones):
+        print(f"{i + 1}: Combinación {opcion}")
+
+    # Solicitar la elección del jugador
+    try:
+        seleccion = int(input("Introduce el número de la combinación que deseas usar: ")) - 1
+
+        if 0 <= seleccion < len(opciones):
+            combinacion_seleccionada = eval(opciones[seleccion])  # Evalúa la cadena a una lista
+            organismo.mejorar_atributos(combinacion_seleccionada, combinaciones_json)
+        else:
+            print("Selección inválida. Intenta de nuevo.")
+    except ValueError:
+        print("Por favor, introduce un número válido.")
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+
+
 # Función para dibujar el panel de condiciones del sistema
-def draw_system_conditions(screen, nutrientes, ph):
+def draw_system_conditions(screen, nutrientes, ph, hidrogeno, hierro, nitrogeno, azufre, 
+                           population_hidrogeno, population_hierro, population_nitrogeno, population_azufre):
     font = pygame.font.SysFont(None, 36)
     small_font = pygame.font.SysFont(None, 24)
 
@@ -162,13 +274,40 @@ def draw_system_conditions(screen, nutrientes, ph):
     text_surface = font.render("Condiciones del Sistema", True, WHITE)
     screen.blit(text_surface, (GRID_SIZE * (WIDTH + MARGIN) + 20, 20))
 
-    # Nutrientes
-    nutrientes_text = small_font.render(f"Nutrientes: {nutrientes}", True, WHITE)
+    # Nutrientes Totales
+    nutrientes_text = small_font.render(f"Nutrientes Totales: {nutrientes}", True, WHITE)
     screen.blit(nutrientes_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 70))
+
+    # Nutrientes Específicos
+    hidrogeno_text = small_font.render(f"Hidrógeno: {hidrogeno:.1f}", True, WHITE)
+    screen.blit(hidrogeno_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 100))
+
+    hierro_text = small_font.render(f"Hierro: {hierro:.1f}", True, WHITE)
+    screen.blit(hierro_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 130))
+
+    nitrogeno_text = small_font.render(f"Nitrógeno: {nitrogeno:.1f}", True, WHITE)
+    screen.blit(nitrogeno_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 160))
+
+    azufre_text = small_font.render(f"Azufre: {azufre:.1f}", True, WHITE)
+    screen.blit(azufre_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 190))
 
     # pH
     ph_text = small_font.render(f"Nivel de pH: {ph:.1f}", True, WHITE)
-    screen.blit(ph_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 100))
+    screen.blit(ph_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 220))
+
+    # Poblaciones
+    population_hidrogeno_text = small_font.render(f"Población de Hidrógeno: {population_hidrogeno}", True, WHITE)
+    screen.blit(population_hidrogeno_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 250))
+
+    population_hierro_text = small_font.render(f"Población de Hierro: {population_hierro}", True, WHITE)
+    screen.blit(population_hierro_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 280))
+
+    population_nitrogeno_text = small_font.render(f"Población de Nitrógeno: {population_nitrogeno}", True, WHITE)
+    screen.blit(population_nitrogeno_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 310))
+
+    population_azufre_text = small_font.render(f"Población de Azufre: {population_azufre}", True, WHITE)
+    screen.blit(population_azufre_text, (GRID_SIZE * (WIDTH + MARGIN) + 20, 340))
+
 
 # Función para dibujar los botones de selección de organismos en la derecha
 def draw_organism_selection_buttons(screen):
@@ -221,9 +360,10 @@ while not done:
     iter_button = draw_button(screen)
 
     # Dibujar las condiciones del sistema
-    draw_system_conditions(screen, nutrientes, ph)
-
-      # Dibujar los botones de selección de organismos
+    draw_system_conditions(screen, nutrientes, ph, hidrogeno, hierro, nitrogeno, azufre, 
+                       population_hidrogeno, population_hierro, population_nitrogeno, population_azufre)
+ 
+    # Dibujar los botones de selección de organismos
     organism_buttons = draw_organism_selection_buttons(screen)
 
     # Limitar la actualización a 60 FPS
