@@ -41,7 +41,7 @@ The game simulates a dynamic ecosystem populated by various non-existent organis
 ## How to Run the Project
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ChemosynthesisChallenge.git
+   git clone https://github.com/norjuelas/ChemosynthesisChallenge.git
 
 2. Navigate to the project directory:
    ```bash
@@ -53,7 +53,7 @@ The game simulates a dynamic ecosystem populated by various non-existent organis
 
 4. Run the game:
    ```bash
-    python main.py
+    python gui.py
 
 ## Contributing
 
@@ -68,7 +68,9 @@ Submit a pull request: Share your changes with the project maintainers for revie
 
 For any questions or further information about the project, feel free to contact the team members at:
 
-Nicolás David Orjuela Sánchez - [your_email@example.com]
-[Team Member 2 Email]
-[Team Member 3 Email]
-[Team Member 4 Email]
+Nicolás David Orjuela Sánchez - [norjuelas@unal.edu.co]
+Lorena Alejandra Velásquez Bolaños - [lovelasquezb@unal.edu.co]
+Juan Julián González Arzuza - [jgonzalezarz@unal.edu.co]
+Paula Andrea Corredor Méndez - [pcorredor@unal.edu.co]
+Camilo Ernesto Medina González - [cemedinag@unal.edu.co]
+Alejandro Leal Barreto - [alealb@unal.edu.co]
