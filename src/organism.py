@@ -1,5 +1,6 @@
 import pygame
 import random
+import json
 
 # Clase base Organismo
 class Organismo(pygame.sprite.Sprite):
@@ -27,6 +28,23 @@ class Organismo(pygame.sprite.Sprite):
     def mostrar_descripcion(self, pantalla, fuente, color=(255, 255, 255)):
         texto_descripcion = fuente.render(self.description, True, color)
         pantalla.blit(texto_descripcion, (self.rect.x, self.rect.y - 20))
+
+    # Método para mejorar atributos basados en el JSON
+    def mejorar_atributos(self, combinacion, combinaciones_json):
+        """Mejora los atributos del organismo basado en la combinación y el JSON."""
+        key = str(sorted(combinacion))  # Convertir la combinación en una clave ordenada para buscar en el JSON
+        if key in combinaciones_json:
+            mejora = combinaciones_json[key]
+            self.fuerza = mejora.get("Fuerza", self.fuerza)
+            self.resistencia = mejora.get("Resistencia", self.resistencia)
+            self.regeneracion = mejora.get("Regeneración", self.regeneracion)
+            self.crecimiento_adaptabilidad = mejora.get("Crecimiento y Adaptabilidad", self.crecimiento_adaptabilidad)
+            self.detoxificacion_defensa = mejora.get("Detoxificación y Defensa Toxicológica", self.detoxificacion_defensa)
+            self.recuperacion = mejora.get("Recuperación", self.recuperacion)
+            self.behavior = mejora.get("behavior", self.behavior)
+            self.description = mejora.get("Description", self.description)
+        else:
+            print(f"No se encontró una mejora para la combinación: {key}")
 
     # Método para intentar ganar una cuadrícula adyacente vacía
     def intentar_expansion(self, grid, row, col):
@@ -63,8 +81,6 @@ class Organismo(pygame.sprite.Sprite):
         return False
 
 # Clases Hijas
-# No necesitan cambios directos, ya que los métodos de interacción están en la clase base
-
 class Azufre(Organismo):
     def __init__(self, pos_x, pos_y, tamaño):
         super().__init__(pos_x, pos_y, tamaño, (255, 255, 0))  # Color amarillo
@@ -118,3 +134,10 @@ class Hidrogeno(Organismo):
         self.behavior = "Facilita reacciones químicas y es esencial para el metabolismo."
         self.description = ("El hidrógeno juega un papel vital en las reacciones químicas "
                             "celulares, siendo una parte integral del metabolismo y la energía.")
+
+# Cargar el archivo JSON de combinaciones
+def cargar_combinaciones_json(ruta_json):
+    with open(ruta_json, 'json/Combinaciones.json', encoding='utf-8') as file:
+        combinaciones_json = json.load(file)
+    return combinaciones_json
+
