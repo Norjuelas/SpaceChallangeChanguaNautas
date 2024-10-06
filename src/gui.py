@@ -76,8 +76,6 @@ buttons = [
     Button(450, 150, 150, 150, "img/Hierro.jpg", "Hierro"),
     Button(650, 150, 150, 150, "img/Nitrogeno.jpg", "Nitrogeno")
 ]
-
-
 # Configuración de la pantalla
 running = True
 while running:
@@ -90,7 +88,7 @@ while running:
                 if (event.key == pygame.K_SPACE)or((event.type == pygame.MOUSEBUTTONDOWN)and(start_button.collidepoint(event.pos))):
                     print("¡Iniciando el juego!")
                     running = False
-                    WIDTH, HEIGHT = 900, 400
+                    WIDTH, HEIGHT = 900, 900
                     screen = pygame.display.set_mode((WIDTH, HEIGHT))
                     pygame.display.set_caption("Menú de Opciones")
 
@@ -108,9 +106,8 @@ while running:
                             for button in buttons:
                                 button.handle_event(event)
                         screen.fill((0, 150, 150))
-
                         font_inicio = pygame.font.Font(None, 64)
-                        title_inicio= font_inicio.render("Selecciona tus bacterias", True, BLACK)  
+                        title_inicio= font_inicio.render("Selecciona tus bacterias", True, BLACK)
                         screen.blit(title_inicio, (150, 50))
                         # Dibujar botones
                         for button in buttons:
@@ -128,8 +125,6 @@ while running:
                             main.main(selected_options) # Arreglo de las opciones seleccionadas
                             runnin = False 
                         pygame.display.flip()
-
-            
                 if exit_button.collidepoint(event.pos):
                     running = False
 
@@ -138,10 +133,6 @@ while running:
 
         # Dibujar título
         screen.blit(title_text, (WIDTH//2 - title_text.get_width()//2, 50))
-
-        # Dibujar botones
-        start_button = draw_button("Iniciar Juego", (WIDTH//2 - 100, 300), (200, 50))
-        exit_button = draw_button("Salir", (WIDTH//2 - 100, 400), (200, 50))
 
         # Dibujar instrucciones
         screen.blit(start_text, (WIDTH//2 - start_text.get_width()//2, HEIGHT - 100))

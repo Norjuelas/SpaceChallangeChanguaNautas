@@ -1,7 +1,7 @@
 import pygame
 import random
 from organism import Azufre, Hierro, Nitrogeno, Hidrogeno
-
+from animals import Animals
 from Condicionesspacio import *
 
 # Define colores
@@ -234,11 +234,11 @@ def handle_iteration():
         grid.add_organism(row, col, organism)
 
     count_organisms()
-    
     # Ajustar condiciones de vida según el pH
     for organismo in organism_manager.get_organisms():
         condiciones.ajustar_condiciones(organismo)
-        #elegir_mejora(organismo, combinaciones_json)  # Pasa el JSON cargado aquí
+    animales = Animals()
+    print(animales.select_animal(['H','Fe']))
 
 def elegir_mejora(organismo, combinaciones_json):
     """Permite al jugador elegir una característica para mejorar el organismo."""
